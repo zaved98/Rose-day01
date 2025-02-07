@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rose Day Surprise for PiuPiu 🌹</title>
+  <style>
+    body {
+      background-color: #ffe6e6;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    h1 {
+      color: #ff4d4d;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .rose {
+      font-size: 5rem;
+      cursor: pointer;
+      position: absolute;
+      user-select: none;
+    }
+    p {
+      font-size: 1.5rem;
+      color: #333;
+      margin-top: 20px;
+    }
+    .heart {
+      color: #ff4d4d;
+      font-size: 2rem;
+      animation: beat 1s infinite;
+    }
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Rose Day, PiuPiu! 🌹</h1>
+  <div class="rose" onclick="replicateRose(event)">🌹</div>
+  <p>Click the rose to see the magic!</p>
+  <p>With all my love,</p>
+  <p>Your Secret Admirer <span class="heart">❤️</span></p>
+
+  <script>
+    function replicateRose(event) {
+      const rose = event.target;
+      const numRoses = 50; // Number of roses to create per click
+
+      for (let i = 0; i < numRoses; i++) {
+        const newRose = document.createElement('div');
+        newRose.className = 'rose';
+        newRose.innerHTML = '🌹';
+        newRose.style.left = ${Math.random() * window.innerWidth}px;
+        newRose.style.top = ${Math.random() * window.innerHeight}px;
+        newRose.style.fontSize = ${Math.random() * 4 + 2}rem;
+        newRose.style.transform = rotate(${Math.random() * 360}deg);
+        newRose.onclick = replicateRose; // Make new roses clickable
+        document.body.appendChild(newRose);
+      }
+    }
+  </script>
+</body>
+</html>
